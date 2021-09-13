@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Patient } from './classes';
+import { RestserviceService } from './restservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'JesusScript';
+  patient : Patient;
+  constructor(private service: RestserviceService){
+    console.log();
+
+    service.getPatient().then(
+      patient => {
+        console.log(patient);
+        this.patient = patient;
+      }
+    );
+
+  }
 }
