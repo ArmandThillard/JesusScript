@@ -4,7 +4,7 @@ import { Name } from "./Name";
 import { Telecom } from "./Telecom";
 
 export class Patient{
-    resourceType: string;
+    resourceType: string = "Patient";
     id : string;
     identifier: Identifier[];
     active : boolean;
