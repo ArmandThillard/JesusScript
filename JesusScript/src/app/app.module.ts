@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { InfosPatientComponent } from './infos-patient/infos-patient.component';
 import { ObservationComponent } from './observation/observation.component';
 import { ConsultationComponent } from './consultation/consultation.component';
+import { DatepipePipe } from './datepipe.pipe';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -19,7 +20,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppComponent,
     InfosPatientComponent,
     ObservationComponent,
-    ConsultationComponent
+    ConsultationComponent,
+    DatepipePipe
   ],
   imports: [
     BrowserModule,
