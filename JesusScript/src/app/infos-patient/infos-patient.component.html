@@ -1,1 +1,11 @@
-<p>infos-patient works!</p>
+<p>Notre patient : {{_patient.id}}</p>
+<div id="nomPrenom">Nom/prenom : {{_patient.name[0].given[0]}} {{_patient.name[0].family}}</div>
+<div id="birthDate">Date de Naissance : {{_patient.birthDate}}</div>
+<div id="gender">Sexe : {{_patient.gender}}</div>
+<div id="address">Adresse : {{_patient.address[0].line[0]}}
+  {{_patient.address[0].city}}
+  {{_patient.address[0].postalCode}}
+  {{_patient.address[0].country}}
+</div>
+<div id="phone">Téléphone : {{_patient.telecom[0].value}}
+</div>

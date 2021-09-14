@@ -5,8 +5,9 @@
 </header>
 <main>
   <div>
-    <span>Notre patient : {{patient.id}}</span>
-
+    <!--<span>Notre patient : {{patient.id}}</span>-->
+    <app-infos-patient [patient]="patient">
+    </app-infos-patient>
   </div>
 </main>
 <footer>
