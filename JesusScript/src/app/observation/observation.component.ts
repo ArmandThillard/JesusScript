@@ -4,16 +4,15 @@ import { Observation } from '../classes/Observation';
 @Component({
   selector: 'app-observation',
   templateUrl: './observation.component.html',
-  styleUrls: ['./observation.component.scss']
+  styleUrls: ['./observation.component.scss'],
 })
 export class ObservationComponent implements OnInit {
+  _observation: Observation;
 
-  _observation: Observation
-
-  constructor() { }
+  constructor() {}
 
   get code() {
-    return this._observation.code.coding[0]
+    return this._observation.code.coding[0];
   }
 
   get observation() {
@@ -21,11 +20,9 @@ export class ObservationComponent implements OnInit {
   }
 
   @Input()
-  set observation(value:Observation){
+  set observation(value: Observation) {
     this._observation = value;
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
