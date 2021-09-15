@@ -14,15 +14,25 @@
         </ul>
       </nav>
       <div id="functionApp">
-        <app-infos-patient *ngIf="profilDisplay" [patient]="patient"></app-infos-patient>
         <app-consultation *ngIf="consultationDisplay"
         [listeConsultations]="listeConsultations"
         (notifyAppointment)="submitAppoitment($event)"></app-consultation>
+      <app-infos-patient
+        *ngIf="profilDisplay"
+        [patient]="patient"
+      ></app-infos-patient>
+      <div id="observation">
+        Observations
+        <mat-grid-list cols="3" rowHeight="2:1">
+          <mat-grid-tile
+            *ngFor="let observation of observations"
+            class="tileText"
+          >
+            <app-observation [observation]="observation"> </app-observation>
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
-
     </div>
-
+  </div>
 </main>
-<footer>
-
-</footer>
+<footer></footer>
