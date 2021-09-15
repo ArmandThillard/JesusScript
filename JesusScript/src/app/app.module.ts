@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import { InfosPatientComponent } from './infos-patient/infos-patient.component';
 import { ObservationComponent } from './observation/observation.component';
 import { ConsultationComponent } from './consultation/consultation.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -18,11 +24,17 @@ import { ConsultationComponent } from './consultation/consultation.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    MatCardModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatButtonModule,
+    AppRoutingModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  
+export class AppModule {
+
 }

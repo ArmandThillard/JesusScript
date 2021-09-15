@@ -1,0 +1,45 @@
+
+header{
+  background-color : GREEN;
+  padding-top:1%;
+  padding-bottom:1%;
+  display:flex;
+  align-items:center;
+  color:white;
+
+  #imgJesus{
+    width:75px;
+    color:white;
+    margin-left:2.5%;
+  }
+  #title{
+    display:flex;
+    font-size:xxx-large;
+    vertical-align: middle;
+    margin: auto;
+  }
+}
+main{
+  .grid-container{
+    display: grid;
+    grid-template-columns: 10% 90%;
+  }
+  nav{
+    background-color:GREEN;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+
+
+    ul{
+        padding:0px;
+        list-style: none;
+    }
+    button{
+      width:100%;
+      color:white;
+      //background-color:#32CD32;
+      background-color:GREEN;
+    }
+  }
+}

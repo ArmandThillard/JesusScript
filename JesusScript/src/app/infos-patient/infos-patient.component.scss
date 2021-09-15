@@ -1,0 +1,31 @@
+::ng-deep{
+  .mat-grid-tile-content{
+    display: initial !important;
+    margin : auto !important;
+    height-max:10px !important;
+  }
+  mat-grid-list{
+    padding-bottom:100px !important;
+  }
+}
+#imageProfil{
+    width:40%;
+    margin:auto;
+}
+#imageHome{
+    width:40%;
+    margin:auto;
+}
+#imagePhone{
+    width:40%;
+    margin:auto;
+}
+::ng-deep{
+  .tileImg{
+    width:20% !important;
+  }
+  .tileText{
+      width:70% !important;
+      left:20% !important;
+    }
+}

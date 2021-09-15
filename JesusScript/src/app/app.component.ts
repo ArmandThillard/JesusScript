@@ -10,6 +10,8 @@ import { RestserviceService } from './restservice.service';
 export class AppComponent {
   title = 'JesusScript';
   patient : Patient;
+
+  public profilDisplay:boolean =false;
   constructor(private service: RestserviceService){
     console.log();
 
@@ -19,6 +21,8 @@ export class AppComponent {
         this.patient = patient;
       }
     );
-
   }
+  showProfil(){
+      this.profilDisplay=true;
+    }
 }

@@ -1,14 +1,27 @@
 <header>
-  <div id="title">
-    Jesus Script
-  </div>
+      <img id="imgJesus" src="assets/jesus_script_white.png"/>
+      <div id="title">
+        Jésus Script
+      </div>
 </header>
 <main>
-  <div>
+    <div class="grid-container">
+      <nav>
+        <ul>
+          <li><button mat-button (click)="showProfil()">Profil</button></li>
+          <li><button mat-button>Rendez-vous</button></li>
+          <li><button mat-button>Observations</button></li>
+        </ul>
+      </nav>
+      <div id="functionApp">
+        <app-infos-patient *ngIf="profilDisplay" [patient]="patient"></app-infos-patient>
+      </div>
+
+    </div>
+
+
     <!--<span>Notre patient : {{patient.id}}</span>-->
-    <app-infos-patient [patient]="patient">
-    </app-infos-patient>
-  </div>
+
 </main>
 <footer>
 
