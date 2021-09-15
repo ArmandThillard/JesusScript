@@ -54,6 +54,18 @@ export class AppComponent {
 
   submitAppoitment(appointment: Appointment){
     this.service.postAppointment(appointment);
+  onDeleteObservation(observation: Observation) {
+    console.log('deleteObservation', observation);
+    this.service.deleteObservation(observation.id);
+    this.observations.splice(
+      this.observations.findIndex((obj) => {
+        return obj.id == observation.id;
+      }, 1)
+    );
+  }
+
+  public set showConsultations(value: boolean) {
+    this._showConsultations = value;
   }
 
 }

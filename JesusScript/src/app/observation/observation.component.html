@@ -1,1 +1,15 @@
-<p>observation works!</p>
+<mat-card>
+  <button mat-raised-button color="warn" (click)="onDeleteObservation()">
+    X
+  </button>
+  <div id="code">Code : {{ code.code }} {{ code.display }}</div>
+  <div>
+    Date :
+    <span
+      id="date"
+      [innerHTML]="observation.effectiveDateTime | date: 'd/MM/y'"
+    ></span>
+  </div>
+
+  <div id="value">Value : {{ observation.valueQuantity.value }}</div>
+</mat-card>

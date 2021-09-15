@@ -79,4 +79,13 @@ export class RestserviceService {
     .toPromise().catch(this.handleError);
   }
 
+
+  deleteObservation(observationId: String) {
+    return this.http
+      .delete(this._server + 'observation/' + observationId, {
+        headers: this.setHeaders(this.user),
+      })
+      .toPromise()
+      .catch(this.handleError);
+  }
 }
