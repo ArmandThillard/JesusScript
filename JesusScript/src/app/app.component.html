@@ -1,8 +1,7 @@
 <header>
-      <img id="imgJesus" src="assets/jesus_script_white.png"/>
-      <div id="title">
-        Jésus Script
-      </div>
+  <div id="title">
+    Jesus Script
+  </div>
 </header>
 <main>
     <div class="grid-container">
@@ -21,7 +20,17 @@
 
 
     <!--<span>Notre patient : {{patient.id}}</span>-->
+    <app-infos-patient [patient]="patient">
+    </app-infos-patient>
+  </div>
+  <section *ngIf="showConsultations" id="consultation">
 
+    <h2>Toutes les consultations</h2>
+    <app-consultation *ngFor="let consultation of listeConsultations"
+      [consultation]="consultation">
+    </app-consultation>
+
+  </section>
 </main>
 <footer>
 

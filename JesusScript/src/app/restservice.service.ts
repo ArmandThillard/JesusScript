@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from './classes/Patient';
+import { Appointment } from './classes/Appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,19 @@ export class RestserviceService {
     return this.http.get(this._server + "patient/612e0350a5b46400122dx508",
     { headers: this.setHeaders(this.user)})
     .toPromise().catch(this.handleError);
+  }
+
+  getListeConsultations(id): Promise<Appointment[]> {
+    /*if (id == ""){
+      return this.http.get(this._server + "appointment",
+      { headers: this.setHeaders(this.user)})
+      .toPromise().catch(this.handleError);
+    }else{*/
+      console.log("GET liste consultations");
+      return this.http.get(this._server + "appointment?participant.actor.reference=Patient/" + id,
+      { headers: this.setHeaders(this.user)})
+      .toPromise().catch(this.handleError);
+    //}
   }
 
 }

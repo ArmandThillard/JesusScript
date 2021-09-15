@@ -1,1 +1,8 @@
-<p>consultation works!</p>
+<div>
+    
+    <h3>{{consultation.description}}</h3>
+    <p>Consultation créée le {{consultation.created}}</p>
+    <p>Début : <span [innerHTML]="parseDateTime( consultation.requestedPeriod[0].start )"></span></p>
+    <p>Fin : <span [innerHTML]="parseDateTime( consultation.requestedPeriod[0].end )"></span></p>
+
+</div>
