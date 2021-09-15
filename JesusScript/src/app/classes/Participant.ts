@@ -8,4 +8,11 @@ export class Participant{
     required : string;
     status : string;
     period : Period;
+
+    constructor(actor: Actor, required, status){ 
+        this.actor = actor;
+        this.required = required;
+        this. status = status;
+    }
+
 }

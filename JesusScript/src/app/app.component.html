@@ -1,21 +1,26 @@
 <header>
-  <div id="title">Jesus Script</div>
+  <img id="imgJesus" src="assets/jesus_script_white.png"/>
+  <div id="title">
+    Jésus Script
+  </div>
 </header>
 <main>
-  <div class="grid-container">
-    <nav>
-      <ul>
-        <li><button mat-button (click)="showProfil()">Profil</button></li>
-        <li><button mat-button>Rendez-vous</button></li>
-        <li><button mat-button>Observations</button></li>
-      </ul>
-    </nav>
-    <div id="functionApp">
+    <div class="grid-container">
+      <nav>
+        <ul>
+          <li><button mat-button (click)="showProfil()">Profil</button></li>
+          <li><button mat-button (click)="showConsultations()">Rendez-vous</button></li>
+          <li><button mat-button>Observations</button></li>
+        </ul>
+      </nav>
+      <div id="functionApp">
+        <app-consultation *ngIf="consultationDisplay"
+        [listeConsultations]="listeConsultations"
+        (notifyAppointment)="submitAppoitment($event)"></app-consultation>
       <app-infos-patient
         *ngIf="profilDisplay"
         [patient]="patient"
       ></app-infos-patient>
-
       <div id="observation">
         Observations
         <mat-grid-list cols="3" rowHeight="2:1">
@@ -29,14 +34,5 @@
       </div>
     </div>
   </div>
-
-  <section *ngIf="showConsultations" id="consultation">
-    <h2>Toutes les consultations</h2>
-    <app-consultation
-      *ngFor="let consultation of listeConsultations"
-      [consultation]="consultation"
-    >
-    </app-consultation>
-  </section>
 </main>
 <footer></footer>

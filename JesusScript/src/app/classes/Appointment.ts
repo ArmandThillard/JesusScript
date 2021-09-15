@@ -27,11 +27,12 @@ export class Appointment{
 //     reasonCode : CodeableConcept[];
 //    reasonReference :
 //    supportingInformation :
-//    start : Date;
-//    end : Date;
+    start : Date;
+    end : Date;
 //    slot : Slot[];
 //    patientInstruction : string;
 //    basedOn :
+
 }
 
 // https://stackoverflow.com/questions/64345341/define-a-typescript-type-from-properties-of-objects-in-a-list
