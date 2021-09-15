@@ -1,37 +1,42 @@
 <header>
-  <div id="title">
-    Jesus Script
-  </div>
+  <div id="title">Jesus Script</div>
 </header>
 <main>
-    <div class="grid-container">
-      <nav>
-        <ul>
-          <li><button mat-button (click)="showProfil()">Profil</button></li>
-          <li><button mat-button>Rendez-vous</button></li>
-          <li><button mat-button>Observations</button></li>
-        </ul>
-      </nav>
-      <div id="functionApp">
-        <app-infos-patient *ngIf="profilDisplay" [patient]="patient"></app-infos-patient>
+  <div class="grid-container">
+    <nav>
+      <ul>
+        <li><button mat-button (click)="showProfil()">Profil</button></li>
+        <li><button mat-button>Rendez-vous</button></li>
+        <li><button mat-button>Observations</button></li>
+      </ul>
+    </nav>
+    <div id="functionApp">
+      <app-infos-patient
+        *ngIf="profilDisplay"
+        [patient]="patient"
+      ></app-infos-patient>
+
+      <div id="observation">
+        Observations
+        <mat-grid-list cols="3" rowHeight="2:1">
+          <mat-grid-tile
+            *ngFor="let observation of observations"
+            class="tileText"
+          >
+            <app-observation [observation]="observation"> </app-observation>
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
-
     </div>
-
-
-    <!--<span>Notre patient : {{patient.id}}</span>-->
-    <app-infos-patient [patient]="patient">
-    </app-infos-patient>
   </div>
+
   <section *ngIf="showConsultations" id="consultation">
-
     <h2>Toutes les consultations</h2>
-    <app-consultation *ngFor="let consultation of listeConsultations"
-      [consultation]="consultation">
+    <app-consultation
+      *ngFor="let consultation of listeConsultations"
+      [consultation]="consultation"
+    >
     </app-consultation>
-
   </section>
 </main>
-<footer>
-
-</footer>
+<footer></footer>
