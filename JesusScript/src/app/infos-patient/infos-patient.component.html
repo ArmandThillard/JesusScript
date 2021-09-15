@@ -1,11 +1,46 @@
-<p>Notre patient : {{_patient.id}}</p>
-<div id="nomPrenom">Nom/prenom : {{_patient.name[0].given[0]}} {{_patient.name[0].family}}</div>
-<div id="birthDate">Date de Naissance : {{_patient.birthDate}}</div>
-<div id="gender">Sexe : {{_patient.gender}}</div>
-<div id="address">Adresse : {{_patient.address[0].line[0]}}
-  {{_patient.address[0].city}}
-  {{_patient.address[0].postalCode}}
-  {{_patient.address[0].country}}
-</div>
-<div id="phone">Téléphone : {{_patient.telecom[0].value}}
+<div id="infos_patient">
+  <mat-toolbar>{{subtitleProfil}}</mat-toolbar>
+  <!--<p>Notre patient : {{_patient.id}}</p>-->
+  <mat-card>
+    <mat-grid-list cols="2" rowHeight="1:1">
+      <mat-grid-tile class="tileImg">
+        <img id="imageProfil" src="assets/profil.png"/>
+      </mat-grid-tile>
+      <mat-grid-tile class="tileText">
+        <mat-card-title>Informations personnelles</mat-card-title>
+        <div id="nomPrenom">Nom/prenom : {{_patient.name[0].given[0]}} {{_patient.name[0].family}}</div>
+        <div id="birthDate">Date de Naissance : {{dateNaissanceFrench}}</div>
+        <div id="gender">Sexe : {{_patient.gender}}</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+  <br />
+  <mat-card>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile class="tileImg">
+        <img id="imageHome" src="assets/home.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile class="tileText">
+      <mat-card-title>Adresse</mat-card-title>
+        <div id="address">{{_patient.address[0].line[0]}}<br />
+          {{_patient.address[0].city}}
+          {{_patient.address[0].postalCode}}<br />
+          {{_patient.address[0].country}}
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+  <br />
+  <mat-card>
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile class="tileImg">
+      <img id="imagePhone" src="assets/phone.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile class="tileText">
+      <mat-card-title>Télephone</mat-card-title>
+        <div id="phone">Téléphone portable : {{_patient.telecom[0].value}}</div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+  <br />
 </div>
