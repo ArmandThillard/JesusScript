@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Patient } from './classes/Patient';
+import { Observation } from './classes/Observation';
 import { Appointment } from './classes/Appointment';
 
 @Injectable({
@@ -41,6 +42,11 @@ export class RestserviceService {
     .toPromise().catch(this.handleError);
   }
 
+  getObservation(): Promise<Observation[]> {
+    return this.http.get(this._server + "observation?subject.reference=Patient/612e0350a5b46400122cf509",
+    { headers: this.setHeaders(this.user)})
+    .toPromise().catch(this.handleError);
+  }
   getListeConsultations(id): Promise<Appointment[]> {
     /*if (id == ""){
       return this.http.get(this._server + "appointment",
