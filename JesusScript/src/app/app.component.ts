@@ -15,8 +15,9 @@ export class AppComponent {
   listeConsultations: Appointment[];
   observations: Observation[];
 
-  public profilDisplay:boolean =false;
+  public profilDisplay: boolean = true;
   public consultationDisplay: boolean = false;
+  public observationDisplay: boolean = false;
 
   constructor(private service: RestserviceService) {
     this.service.getPatient().then((patient) => {
@@ -35,25 +36,33 @@ export class AppComponent {
     });
   }
 
-  // public get showConsultations() {
-  //   return this._showConsultations;
-  // }
-
-  // public set showConsultations(value: boolean) {
-  //   this._showConsultations = value;
-  // }
-
-  showProfil(){
-    this.profilDisplay=true;
+  showProfil() {
+    this.profilDisplay = true;
     this.consultationDisplay = false;
-  }
-  showConsultations(){
-    this.profilDisplay=false;
-    this.consultationDisplay = true;
+    this.observationDisplay = false;
   }
 
-  submitAppoitment(appointment: Appointment){
+  showConsultations() {
+    this.profilDisplay = false;
+    this.consultationDisplay = true;
+    this.observationDisplay = false;
+  }
+
+  showObservations() {
+    this.profilDisplay = false;
+    this.consultationDisplay = false;
+    this.observationDisplay = true;
+  }
+
+  submitAppoitment(appointment: Appointment) {
     this.service.postAppointment(appointment);
+  }
+
+  submitObservation(observation: Observation) {
+    this.observations.push(observation);
+    this.service.postObservation(observation);
+  }
+
   onDeleteObservation(observation: Observation) {
     console.log('deleteObservation', observation);
     this.service.deleteObservation(observation.id);
@@ -63,9 +72,4 @@ export class AppComponent {
       }, 1)
     );
   }
-
-  public set showConsultations(value: boolean) {
-    this._showConsultations = value;
-  }
-
 }

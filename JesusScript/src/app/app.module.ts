@@ -17,6 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NewObservationComponent } from './new-observation/new-observation.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
     ObservationComponent,
     ConsultationComponent,
     DatepipePipe,
+    NewObservationComponent,
   ],
   imports: [
     BrowserModule,
