@@ -5,7 +5,7 @@ import { Quantity } from './Quantity';
 
 export class Observation {
   id: String;
-  identifier: Identifier[];
+  resourceType: String = 'Observation';
   status: String;
   code: CodeableConcept;
   subject: Actor;

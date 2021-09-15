@@ -72,13 +72,25 @@ export class RestserviceService {
     //}
   }
 
-  postAppointment(appointment: Appointment){
-    console.log("Trying to POST an appointment", appointment);
-    this.http.post<Appointment>(this._server + "appointment", appointment,
-    { headers: this.setHeaders(this.user)})
-    .toPromise().catch(this.handleError);
+  postAppointment(appointment: Appointment) {
+    console.log('Trying to POST an appointment', appointment);
+    this.http
+      .post<Appointment>(this._server + 'appointment', appointment, {
+        headers: this.setHeaders(this.user),
+      })
+      .toPromise()
+      .catch(this.handleError);
   }
 
+  postObservation(observation: Observation) {
+    console.log('Trying to POST an observation', observation);
+    this.http
+      .post<Observation>(this._server + 'observation', observation, {
+        headers: this.setHeaders(this.user),
+      })
+      .toPromise()
+      .catch(this.handleError);
+  }
 
   deleteObservation(observationId: String) {
     return this.http
