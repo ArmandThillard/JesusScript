@@ -1,8 +1,55 @@
 <div>
-    
-    <h3>{{consultation.description}}</h3>
-    <p>Consultation créée le {{consultation.created}}</p>
-    <p>Début : <span [innerHTML]="parseDateTime( consultation.requestedPeriod[0].start )"></span></p>
-    <p>Fin : <span [innerHTML]="parseDateTime( consultation.requestedPeriod[0].end )"></span></p>
+
+    <header>
+
+        <form [formGroup]="checkoutForm" (ngSubmit)="onAppointmentSubmit()">
+
+            <mat-form-field appearance="fill">
+                <mat-label for="description">Titre du rendez-vous</mat-label>
+                <input matInput name="description" formControlName="description" value="" placeholder="Ex. : mal de dos, demande de certificat médical...">
+            </mat-form-field>
+          
+            <mat-form-field appearance="fill">
+                <mat-label for="comment">Décrivez pourquoi vous prenez rendez-vous</mat-label>
+                <textarea matInput placeholder="Ex. : J'ai mal depuis deux jours, du mal à marcher..." formControlName="comment"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label for="day">Donnez le jour du rendez-vous</mat-label>
+                <input type="date" matInput placeholder="" value="" name="day" formControlName="day">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label for="start"></mat-label>
+                <input type="time" matInput placeholder="" value="" formControlName="start">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label for="end"></mat-label>
+                <input type="time" matInput placeholder="" value="" formControlName="end">
+            </mat-form-field>
+
+            <button mat-button color="primary" type="submit">Enregistrer le rendez-vous</button>
+
+        </form>
+
+    </header>
+    <section>
+
+        <h2>Toutes les consultations</h2>
+        <mat-grid-list cols="3" rowHeight="{{ listeConsultations.length / 3 }}:1">
+            <mat-grid-tile *ngFor="let consultation of listeConsultations">
+                <mat-card>
+                    <mat-card-title>Titre : {{consultation.description}}</mat-card-title>
+                    <p>{{consultation.comment}}</p>
+                    <p>Consultation prévue le <span [innerHTML]="consultation.start | date:'d/MM/y'"></span> de <span [innerHTML]="consultation.start | date:'h:mm'"></span> à <span [innerHTML]="consultation.end | date:'h:mm'"></span></p>
+                    <p>Status : {{consultation.status}}</p>
+                    <p>Participants : {{getParticipants(consultation)}}</p>
+                    <p>Consultation créée le <span [innerHTML]="consultation.created | date:'d/MM/y'"></span> à <span [innerHTML]="consultation.created | date:'h:mm'"></span></p>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </section>    
 
 </div>

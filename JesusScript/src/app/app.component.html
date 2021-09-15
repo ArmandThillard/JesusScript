@@ -1,6 +1,7 @@
 <header>
+  <img id="imgJesus" src="assets/jesus_script_white.png"/>
   <div id="title">
-    Jesus Script
+    Jésus Script
   </div>
 </header>
 <main>
@@ -8,29 +9,19 @@
       <nav>
         <ul>
           <li><button mat-button (click)="showProfil()">Profil</button></li>
-          <li><button mat-button>Rendez-vous</button></li>
+          <li><button mat-button (click)="showConsultations()">Rendez-vous</button></li>
           <li><button mat-button>Observations</button></li>
         </ul>
       </nav>
       <div id="functionApp">
         <app-infos-patient *ngIf="profilDisplay" [patient]="patient"></app-infos-patient>
+        <app-consultation *ngIf="consultationDisplay"
+        [listeConsultations]="listeConsultations"
+        (notifyAppointment)="submitAppoitment($event)"></app-consultation>
       </div>
 
     </div>
 
-
-    <!--<span>Notre patient : {{patient.id}}</span>-->
-    <app-infos-patient [patient]="patient">
-    </app-infos-patient>
-  </div>
-  <section *ngIf="showConsultations" id="consultation">
-
-    <h2>Toutes les consultations</h2>
-    <app-consultation *ngFor="let consultation of listeConsultations"
-      [consultation]="consultation">
-    </app-consultation>
-
-  </section>
 </main>
 <footer>
 

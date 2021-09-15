@@ -54,4 +54,11 @@ export class RestserviceService {
     //}
   }
 
+  postAppointment(appointment: Appointment){
+    console.log("Trying to POST an appointment", appointment);
+    this.http.post<Appointment>(this._server + "appointment", appointment,
+    { headers: this.setHeaders(this.user)})
+    .toPromise().catch(this.handleError);
+  }
+
 }

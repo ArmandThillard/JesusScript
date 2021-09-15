@@ -15,8 +15,7 @@ export class AppComponent {
   listeConsultations: Appointment[];
 
   public profilDisplay:boolean =false;
-
-  _showConsultations: boolean = false;
+  public consultationDisplay: boolean = false;
 
   constructor(private service: RestserviceService) {
     this.service.getPatient().then(
@@ -34,15 +33,26 @@ export class AppComponent {
     );
   }
 
-  public get showConsultations() {
-    return this._showConsultations;
-  }
+  // public get showConsultations() {
+  //   return this._showConsultations;
+  // }
 
-  public set showConsultations(value: boolean) {
-    this._showConsultations = value;
-  }
+  // public set showConsultations(value: boolean) {
+  //   this._showConsultations = value;
+  // }
 
   showProfil(){
-      this.profilDisplay=true;
-    }
+    this.profilDisplay=true;
+    this.consultationDisplay = false;
+  }
+  showConsultations(){
+    this.profilDisplay=false;
+    this.consultationDisplay = true;
+  }
+
+  submitAppoitment(appointment: Appointment){
+    this.service.postAppointment(appointment);
+  }
+
+
 }
