@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observation } from '../classes/Observation';
 
 @Component({
@@ -19,9 +19,16 @@ export class ObservationComponent implements OnInit {
     return this._observation;
   }
 
+  @Output()
+  notifyDeleteObservation: EventEmitter<Observation> = new EventEmitter<Observation>();
+
   @Input()
   set observation(value: Observation) {
     this._observation = value;
+  }
+
+  onDeleteObservation() {
+    this.notifyDeleteObservation.emit(this._observation);
   }
 
   ngOnInit(): void {}

@@ -24,7 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     InfosPatientComponent,
     ObservationComponent,
     ConsultationComponent,
-    DatepipePipe
+    DatepipePipe,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +42,6 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}
